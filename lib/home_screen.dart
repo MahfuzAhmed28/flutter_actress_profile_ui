@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 expandedHeight: 400,
                 backgroundColor: Colors.black,
                 flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.pin,
                   background: Container(
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -103,14 +104,102 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.grey
                           ),),
                         ),
+                        SizedBox(height: 20,),
+                        FadeInUp(
+                          child: Text('Nationality',style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                          ),),
+                        ),
+                        SizedBox(height: 10,),
+                        FadeInUp(
+                          child: Text('British',style: TextStyle(
+                              color: Colors.grey
+                          ),),
+                        ),
+                        SizedBox(height: 20,),
+                        FadeInUp(
+                          child: Text('Videos',style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                          ),),
+                        ),
+                        SizedBox(height: 20,),
+                        FadeInUp(
+                          child: Container(
+                            height: 200,
+                            child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                makeVideo(image: 'assets/images/emma-1.jpg'),
+                                makeVideo(image: 'assets/images/emma-2.jpg'),
+                                makeVideo(image: 'assets/images/emma-3.jpg'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 120,),
+
+
                       ],
                     ),
                   )
                 ]),
               )
             ],
+          ),
+          Positioned.fill(
+            bottom: 50,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 50),
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.yellow[700]
+                ),
+                child: Align(
+                  child: Text('Follow',style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),
+              ),
+            ),
           )
         ],
+      ),
+    );
+  }
+  Widget makeVideo({image}){
+    return AspectRatio(
+      aspectRatio: 1.5/1,
+      child: Container(
+        margin: EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              colors: [
+                Colors.black.withOpacity(.9),
+                Colors.black.withOpacity(0.3)
+              ],
+            ),
+          ),
+          child: Align(
+            child: Icon(Icons.play_arrow,color: Colors.white,size: 50,),
+          ),
+        ),
       ),
     );
   }
