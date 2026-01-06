@@ -3,8 +3,8 @@
 A new Flutter project.
 
 ## Getting Started
-<p>
-    <img src="screenshots/one.jpg">
+<p align="center">
+  <img src="screenshots/one.jpg" width="220" />
 </p>
 
 This project is a starting point for a Flutter application.
